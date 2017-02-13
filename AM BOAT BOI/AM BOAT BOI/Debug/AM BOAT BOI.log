@@ -1,3 +1,4 @@
 ﻿  Main.cpp
-  AM BOAT BOI.vcxproj -> C:\Users\cookj12\Desktop\boatPlox\AM BOAT BOI\Debug\AM BOAT BOI.exe
-  AM BOAT BOI.vcxproj -> C:\Users\cookj12\Desktop\boatPlox\AM BOAT BOI\Debug\AM BOAT BOI.pdb (Partial PDB)
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\main.cpp(46): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+  AM BOAT BOI.vcxproj -> C:\Users\cookj12\Desktop\GitHub\boatPlox\AM BOAT BOI\Debug\AM BOAT BOI.exe
+  AM BOAT BOI.vcxproj -> C:\Users\cookj12\Desktop\GitHub\boatPlox\AM BOAT BOI\Debug\AM BOAT BOI.pdb (Partial PDB)
