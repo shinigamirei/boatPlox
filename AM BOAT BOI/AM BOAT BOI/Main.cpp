@@ -11,6 +11,7 @@ using namespace std;
 
 // Globals.
 static float square_color[3] = { 1.0, 0.0, 0.0 }; // Color of the square.
+double forwa = 0.0;
 
 // Drawing routine.
 void drawScene(void)
@@ -20,14 +21,23 @@ void drawScene(void)
 	glColor3f(0.0, 0.0, 1.0);
 
 	glBegin(GL_POLYGON);
-	glVertex3f(-100.0, 0.0, -100.0);
-	glVertex3f(180.0, 0.0, -100.0);
-	glVertex3f(180.0,0.0, 100.0);
-	glVertex3f(-100.0, 0.0, 100.0);
+	glVertex3f(-500.0, 0.0, -500.0);
+	glVertex3f(500.0, 0.0, -500.0);
+	glVertex3f(500.0,0.0, 500.0);
+	glVertex3f(-500.0, 0.0, 500.0);
+	glEnd();
+
+	glColor3f(0.0, 1.0, 0.0);
+	glBegin(GL_POLYGON);
+	glVertex3f(forwa-10.0, 0.0, -10.0);
+	glVertex3f(forwa+10.0, 0.0, -10.0);
+	glVertex3f(forwa+10.0, 0.0, 10.0);
+	glVertex3f(forwa+-10.0, 0.0, 10.0);
 	glEnd();
 
 
-	glFlush();
+	glutSwapBuffers();
+	glutPostRedisplay();
 }
 
 // OpenGL window reshape routine.
@@ -36,11 +46,11 @@ void resize(int w, int h)
 	glViewport(0, 0, w, h);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glFrustumf(-1.0, 1.0, -1.0, 1.0, 0.01, 100.0);
+	gluPerspective(90.0,(double)w/(double)h,0.01,100.0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	gluLookAt(0.0, 10.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0);
+	gluLookAt(-10.0, 10.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 }
 
 // Keyboard input processing routine.
@@ -51,56 +61,12 @@ void keyInput(unsigned char key, int x, int y)
 	case 27:
 		exit(0);
 		break;
+	case int('w') :
+		forwa += 1;
+		break;
 	default:
 		break;
 	}
-}
-
-// Routine to output interaction instructions to the C++ window.
-void printInteraction(void)
-{
-	cout << "Interaction:" << endl;
-	cout << "Press the right mouse button to see options." << endl;
-}
-
-// The top menu callback function.
-void top_menu(int id)
-{
-	if (id == 1) exit(0);
-}
-
-// The sub-menu callback function.
-void color_menu(int id)
-{
-	if (id == 2)
-	{
-		square_color[0] = 1.0; square_color[1] = 0.0; square_color[2] = 0.0;
-	}
-	if (id == 3)
-	{
-		square_color[0] = 0.0; square_color[1] = 0.0; square_color[2] = 1.0;
-	}
-	glutPostRedisplay();
-}
-
-// Routine to make the menu.
-void makeMenu(void)
-{
-	// The sub-menu is created first (because it should be visible when the top
-	// menu is created): its callback function is registered and menu entries added.
-	int sub_menu;
-	sub_menu = glutCreateMenu(color_menu);
-	glutAddMenuEntry("Red", 2);
-	glutAddMenuEntry("Blue", 3);
-
-	// The top menu is created: its callback function is registered and menu entries,
-	// including a submenu, added.
-	glutCreateMenu(top_menu);
-	glutAddSubMenu("Color", sub_menu);
-	glutAddMenuEntry("Quit", 1);
-
-	// The menu is attached to a mouse button.
-	glutAttachMenu(GLUT_RIGHT_BUTTON);
 }
 
 // Initialization routine.
@@ -109,7 +75,7 @@ void setup(void)
 	glClearColor(1.0, 1.0, 1.0, 0.0);
 
 	// Make menu.
-	makeMenu();
+	//makeMenu();
 }
 
 void GamLEP()
@@ -119,20 +85,19 @@ void GamLEP()
 // Main routine.
 int main(int argc, char **argv)
 {
-	printInteraction();
 	glutInit(&argc, argv);
 
 	glutInitContextVersion(4, 2);
 	glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE);
 
-	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowSize(500, 500);
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow("Baot");
 	glutDisplayFunc(drawScene);
 	glutReshapeFunc(resize);
 	glutKeyboardFunc(keyInput);
-	glutIdleFunc(GamLEP);
+	//glutIdleFunc(GamLEP);
 
 	glewExperimental = GL_TRUE;
 	glewInit();
