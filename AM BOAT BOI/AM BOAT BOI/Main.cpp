@@ -12,7 +12,8 @@ using namespace std;
 // Globals.
 static float square_color[3] = { 1.0, 0.0, 0.0 }; // Color of the square.
 double forwa = 0.0;
-
+double boattopz[20] = {-4,-2,-2,-1,1,2,2,4,6,2,1,-1,-2,-4,-6,-3,1,0,6,3};
+double boattopx[20] = {4,12,4,4,4,4,12,4,-2,4,-2,4,-2,4,-2,-12,-2,-12,-2,-12};
 // Drawing routine.
 void drawScene(void)
 {
@@ -28,13 +29,19 @@ void drawScene(void)
 	glEnd();
 
 	glColor3f(0.0, 1.0, 0.0);
-	glBegin(GL_POLYGON);
+/*	glBegin(GL_POLYGON);
 	glVertex3f(forwa-10.0, 0.0, -10.0);
 	glVertex3f(forwa+10.0, 0.0, -10.0);
 	glVertex3f(forwa+10.0, 0.0, 10.0);
 	glVertex3f(forwa+-10.0, 0.0, 10.0);
 	glEnd();
-
+*/
+	glBegin(GL_TRIANGLE_STRIP);
+	for (int i = 0;i < 20;i++)
+	{
+		glVertex3f(boattopx[i],1,boattopz[i]);
+	}
+	glEnd();
 
 	glutSwapBuffers();
 	glutPostRedisplay();
