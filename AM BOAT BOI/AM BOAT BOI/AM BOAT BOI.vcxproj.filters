@@ -21,9 +21,15 @@
     <ClCompile Include="Boat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="buoy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="buoy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

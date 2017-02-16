@@ -24,27 +24,31 @@ void drawScene(void)
 	glBegin(GL_POLYGON);
 	glVertex3f(-500.0, 0.0, -500.0);
 	glVertex3f(500.0, 0.0, -500.0);
-	glVertex3f(500.0,0.0, 500.0);
+	glVertex3f(500.0, 0.0, 500.0);
 	glVertex3f(-500.0, 0.0, 500.0);
 	glEnd();
 
 	glColor3f(0.0, 1.0, 0.0);
-/*	glBegin(GL_POLYGON);
-	glVertex3f(forwa-10.0, 0.0, -10.0);
-	glVertex3f(forwa+10.0, 0.0, -10.0);
-	glVertex3f(forwa+10.0, 0.0, 10.0);
-	glVertex3f(forwa+-10.0, 0.0, 10.0);
-	glEnd();
-*/
+	/*	glBegin(GL_POLYGON);
+		glVertex3f(forwa-10.0, 0.0, -10.0);
+		glVertex3f(forwa+10.0, 0.0, -10.0);
+		glVertex3f(forwa+10.0, 0.0, 10.0);
+		glVertex3f(forwa+-10.0, 0.0, 10.0);
+		glEnd();
+	*/
+
+
+
 	glBegin(GL_TRIANGLE_STRIP);
 	for (int i = 0;i < 20;i++)
 	{
-		glVertex3f(boattopx[i],1,boattopz[i]);
+		glVertex3f(boattopx[i], 1, boattopz[i]);
 	}
 	glEnd();
 
 	glutSwapBuffers();
 	glutPostRedisplay();
+
 }
 
 // OpenGL window reshape routine.
