@@ -1,5 +1,7 @@
 
 #include <iostream>
+#include "buoy.h"
+#include "Boat.h"
 
 #  include <GL/glew.h>
 #  include <GL/freeglut.h>
@@ -14,6 +16,7 @@ static float square_color[3] = { 1.0, 0.0, 0.0 }; // Color of the square.
 double forwa = 0.0;
 double boattopz[20] = {-4,-2,-2,-1,1,2,2,4,6,2,1,-1,-2,-4,-6,-3,1,0,6,3};
 double boattopx[20] = {4,12,4,4,4,4,12,4,-2,4,-2,4,-2,4,-2,-12,-2,-12,-2,-12};
+
 // Drawing routine.
 void drawScene(void)
 {
@@ -45,6 +48,16 @@ void drawScene(void)
 		glVertex3f(boattopx[i], 1, boattopz[i]);
 	}
 	glEnd();
+
+	for (int j = 0;j < 10; j++)
+	{
+		buoy boip;
+		buoy boiq;
+		boip.position(j*40,0,-20);
+		boiq.position(j*40, 0, 20);
+		boip.draw();
+		boiq.draw();
+	}
 
 	glutSwapBuffers();
 	glutPostRedisplay();

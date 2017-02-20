@@ -1,6 +1,4 @@
 ﻿  Main.cpp
-c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\main.cpp(45): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-  buoy.cpp
-  Generating Code...
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\main.cpp(48): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
   AM BOAT BOI.vcxproj -> C:\Users\cookj12\Desktop\GitHub\boatPlox\AM BOAT BOI\Debug\AM BOAT BOI.exe
   AM BOAT BOI.vcxproj -> C:\Users\cookj12\Desktop\GitHub\boatPlox\AM BOAT BOI\Debug\AM BOAT BOI.pdb (Partial PDB)

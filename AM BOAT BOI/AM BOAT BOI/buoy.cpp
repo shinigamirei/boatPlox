@@ -12,6 +12,13 @@ buoy::~buoy()
 {
 }
 
+void buoy::position(int x, int y, int z)
+{
+	pos.x = x;
+	pos.y = y;
+	pos.z = z;
+}
+
 void buoy::draw()
 {
 	glPushMatrix();

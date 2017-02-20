@@ -7,5 +7,6 @@ public:
 	buoy();
 	~buoy();
 	void draw();
+	void position(int,int,int);
 };
 
