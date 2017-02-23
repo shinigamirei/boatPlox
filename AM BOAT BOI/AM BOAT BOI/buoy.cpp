@@ -35,6 +35,7 @@ void buoy::draw()
 	glVertex3f(-3, 0, 3);//7
 	glVertex3f(-3, 3, 3);//8
 	glVertex3f(-3, 0, -3);//9
+	glVertex3f(-3, 3, -3);
 	glVertex3f(-3, 0, 3);
 	glVertex3f(3, 0, 3);
 	glVertex3f(3, 0, -3);
@@ -56,10 +57,10 @@ void buoy::draw()
 	glVertex3f(-1, 10, -1);
 	glEnd();
 
-	//boi bell/end
+	//boui bell/end
 	glPushMatrix();
 	glTranslatef(0,10,0);
-	glutSolidSphere(2, 4, 4);
+	glutSolidSphere(2, 10, 10);
 	glPopMatrix();
 
 	glPopMatrix();

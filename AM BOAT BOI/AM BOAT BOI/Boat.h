@@ -11,5 +11,9 @@ public:
 	
 	Boat();
 	~Boat();
+	void motion();
+	void drawBoat();
+	void drawProw();
+	
 };
 

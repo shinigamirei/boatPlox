@@ -16,6 +16,7 @@ static float square_color[3] = { 1.0, 0.0, 0.0 }; // Color of the square.
 double forwa = 0.0;
 double boattopz[20] = {-4,-2,-2,-1,1,2,2,4,6,2,1,-1,-2,-4,-6,-3,1,0,6,3};
 double boattopx[20] = {4,12,4,4,4,4,12,4,-2,4,-2,4,-2,4,-2,-12,-2,-12,-2,-12};
+Boat player;
 
 // Drawing routine.
 void drawScene(void)
@@ -32,13 +33,13 @@ void drawScene(void)
 	glEnd();
 
 	glColor3f(0.0, 1.0, 0.0);
-		glBegin(GL_POLYGON);
+/*		glBegin(GL_POLYGON);
 		glVertex3f(forwa-10.0, 0.0, -10.0);
 		glVertex3f(forwa+10.0, 0.0, -10.0);
 		glVertex3f(forwa+10.0, 0.0, 10.0);
 		glVertex3f(forwa+-10.0, 0.0, 10.0);
 		glEnd();
-	
+	*/
 
 
 
@@ -48,13 +49,20 @@ void drawScene(void)
 		glVertex3f(boattopx[i], 1, boattopz[i]);
 	}
 	glEnd();
-	*/
+*/
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	
+	glPushMatrix();
+	glTranslatef(player.displacement.x,player.displacement.y,player.displacement.z);
+	player.drawBoat();
+	glPopMatrix();
+
 	for (int j = 0;j < 10; j++)
 	{
 		buoy boip;
 		buoy boiq;
-		boip.position(j*40,0,-20);
-		boiq.position(j*40, 0, 20);
+		boip.position(-20, 0, j * 40);
+		boiq.position(20, 0, j * 40);
 		boip.draw();
 		boiq.draw();
 	}
@@ -70,11 +78,11 @@ void resize(int w, int h)
 	glViewport(0, 0, w, h);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(90.0,(double)w/(double)h,0.01,100.0);
+	gluPerspective(100.0,(double)w/(double)h,0.01,100.0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	gluLookAt(-10.0, 10.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+	gluLookAt(0.0, 10.0, -10.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 }
 
 // Keyboard input processing routine.
@@ -104,6 +112,7 @@ void setup(void)
 
 void GamLEP()
 {
+	player.motion();
 	glutPostRedisplay();
 }
 // Main routine.
@@ -121,7 +130,7 @@ int main(int argc, char **argv)
 	glutDisplayFunc(drawScene);
 	glutReshapeFunc(resize);
 	glutKeyboardFunc(keyInput);
-	//glutIdleFunc(GamLEP);
+	glutIdleFunc(GamLEP);
 
 	glewExperimental = GL_TRUE;
 	glewInit();
