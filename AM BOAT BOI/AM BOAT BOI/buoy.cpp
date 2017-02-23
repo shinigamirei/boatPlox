@@ -23,6 +23,44 @@ void buoy::draw()
 {
 	glPushMatrix();
 	glTranslatef (pos.x,pos.y,pos.z);
-	glutSolidSphere(5,10,10);
+	//buoy base square
+	glColor3f(0.0, 1.0, 0.0);
+	glBegin(GL_TRIANGLE_STRIP);
+	glVertex3f(-3, 0, -3);//1
+	glVertex3f(-3, 3, -3);//2
+	glVertex3f(3, 0, -3);//3
+	glVertex3f(3, 3, -3);//4
+	glVertex3f(3, 0, 3);//5
+	glVertex3f(3, 3, 3);//6
+	glVertex3f(-3, 0, 3);//7
+	glVertex3f(-3, 3, 3);//8
+	glVertex3f(-3, 0, -3);//9
+	glVertex3f(-3, 0, 3);
+	glVertex3f(3, 0, 3);
+	glVertex3f(3, 0, -3);
+	glVertex3f(-3, 0, -3);
+	glEnd();
+
+	//boi pole
+	glColor3f(1, 0, 0);
+	glBegin(GL_TRIANGLE_STRIP);
+	glVertex3f(-1, 3, -1);
+	glVertex3f(-1, 10, -1);
+	glVertex3f(1, 3, -1);
+	glVertex3f(1, 10, -1);
+	glVertex3f(1, 3, 1);
+	glVertex3f(1, 10, 1);
+	glVertex3f(-1, 3, 1);
+	glVertex3f(-1, 10, 1);
+	glVertex3f(-1, 3, -1);
+	glVertex3f(-1, 10, -1);
+	glEnd();
+
+	//boi bell/end
+	glPushMatrix();
+	glTranslatef(0,10,0);
+	glutSolidSphere(2, 4, 4);
+	glPopMatrix();
+
 	glPopMatrix();
 }

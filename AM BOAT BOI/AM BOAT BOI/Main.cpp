@@ -32,13 +32,13 @@ void drawScene(void)
 	glEnd();
 
 	glColor3f(0.0, 1.0, 0.0);
-	/*	glBegin(GL_POLYGON);
+		glBegin(GL_POLYGON);
 		glVertex3f(forwa-10.0, 0.0, -10.0);
 		glVertex3f(forwa+10.0, 0.0, -10.0);
 		glVertex3f(forwa+10.0, 0.0, 10.0);
 		glVertex3f(forwa+-10.0, 0.0, 10.0);
 		glEnd();
-	*/
+	
 
 
 
@@ -48,7 +48,7 @@ void drawScene(void)
 		glVertex3f(boattopx[i], 1, boattopz[i]);
 	}
 	glEnd();
-
+	*/
 	for (int j = 0;j < 10; j++)
 	{
 		buoy boip;
@@ -57,24 +57,7 @@ void drawScene(void)
 		boiq.position(j*40, 0, 20);
 		boip.draw();
 		boiq.draw();
-	}*/
-	//buoy start
-	glBegin(GL_TRIANGLE_STRIP);
-	glVertex3f(-5, 0, -5);//1
-	glVertex3f(-5, 5, -5);//2
-	glVertex3f(5, 0, -5);//3
-	glVertex3f(5, 5, -5);//4
-	glVertex3f(5, 0, 5);//5
-	glVertex3f(5, 5, 5);//6
-	glVertex3f(-5, 0, 5);//7
-	glVertex3f(-5, 5, 5);//8
-	glVertex3f(-5, 0, -5);//9
-
-	glVertex3f(-5, 0, 5);
-	glVertex3f(5, 0, 5);
-	glVertex3f(5, 0, -5);
-	glVertex3f(-5, 0, -5);
-	glEnd();
+	}
 
 	glutSwapBuffers();
 	glutPostRedisplay();

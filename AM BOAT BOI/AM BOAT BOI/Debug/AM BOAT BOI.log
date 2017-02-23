@@ -1,7 +1,6 @@
-﻿  Main.cpp
-c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\main.cpp(28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\main.cpp(29): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\main.cpp(30): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\main.cpp(31): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+﻿  buoy.cpp
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\buoy.cpp(17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\buoy.cpp(18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\buoy.cpp(19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   AM BOAT BOI.vcxproj -> C:\Users\cookj12\Desktop\GitHub\boatPlox\AM BOAT BOI\Debug\AM BOAT BOI.exe
   AM BOAT BOI.vcxproj -> C:\Users\cookj12\Desktop\GitHub\boatPlox\AM BOAT BOI\Debug\AM BOAT BOI.pdb (Partial PDB)
