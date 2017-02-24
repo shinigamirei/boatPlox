@@ -21,8 +21,15 @@ Boat player;
 // Drawing routine.
 void drawScene(void)
 {
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 	glClear(GL_COLOR_BUFFER_BIT);
-
+	
+	gluLookAt(player.displacement.x, player.displacement.y + 7, player.displacement.z - 15,
+		0,0, player.displacement.z,
+		0.0, 1.0, 0.0);
+	
+	glPushMatrix();
 	glColor3f(0.0, 0.0, 1.0);
 
 	glBegin(GL_POLYGON);
@@ -31,8 +38,11 @@ void drawScene(void)
 	glVertex3f(500.0, 0.0, 500.0);
 	glVertex3f(-500.0, 0.0, 500.0);
 	glEnd();
+	glPopMatrix();
 
 	glColor3f(0.0, 1.0, 0.0);
+	
+
 /*		glBegin(GL_POLYGON);
 		glVertex3f(forwa-10.0, 0.0, -10.0);
 		glVertex3f(forwa+10.0, 0.0, -10.0);
@@ -52,10 +62,7 @@ void drawScene(void)
 */
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	
-	glPushMatrix();
-	glTranslatef(player.displacement.x,player.displacement.y,player.displacement.z);
 	player.drawBoat();
-	glPopMatrix();
 
 	for (int j = 0;j < 10; j++)
 	{
@@ -68,8 +75,6 @@ void drawScene(void)
 	}
 
 	glutSwapBuffers();
-	glutPostRedisplay();
-
 }
 
 // OpenGL window reshape routine.
@@ -78,11 +83,15 @@ void resize(int w, int h)
 	glViewport(0, 0, w, h);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(100.0,(double)w/(double)h,0.01,100.0);
+	gluPerspective(90.0, 1, 0.01, 1000.0);
+	/*
+	glMatrixMode(GL_PROJECTION);
+	glViewport(0, 0, w, h);
+	//glLoadIdentity();
+	gluPerspective(100.0,(double)w/(double)h,0.01,1000.0);
 	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-
-	gluLookAt(0.0, 10.0, -10.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+	glLoadIdentity();	
+	*/
 }
 
 // Keyboard input processing routine.
@@ -129,7 +138,7 @@ int main(int argc, char **argv)
 	glutCreateWindow("Baot");
 	glutDisplayFunc(drawScene);
 	glutReshapeFunc(resize);
-	glutKeyboardFunc(keyInput);
+	//glutKeyboardFunc(keyInput);
 	glutIdleFunc(GamLEP);
 
 	glewExperimental = GL_TRUE;

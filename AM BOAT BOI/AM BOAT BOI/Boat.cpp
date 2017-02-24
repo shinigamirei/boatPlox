@@ -4,10 +4,11 @@
 #  include <GL/glext.h>
 Boat::Boat()
 {
-	acceleration = glm::vec3(0.0f, 0.0f, 0.0f);
+	acceleration = glm::vec3(0.0f, 0.0f, 0.0f); //glutget(GLUT_ELAPSED_TIME);
 	heading = glm::vec3(0.0f, 0.0f, -1.0f);
-	velocity = glm::vec3(1.0f, 0.0f, 0.0f);
+	velocity = glm::vec3(0.0f, 0.0f, 1.0f);
 	displacement = glm::vec3(0, 0, 0);
+	campos = glm::vec3(0,10,-10);
 	rotation = 0;
 
 }
@@ -18,20 +19,26 @@ Boat::~Boat()
 
 void Boat::motion()
 {
+
 	displacement = displacement + velocity;
 }
 
 void Boat::drawBoat()
 {
 	glPushMatrix();
+	glTranslatef(displacement.x, displacement.y, displacement.z);
 	glTranslatef(-2, 0, 0);
 	drawProw();
 	glPopMatrix();
 
 	glPushMatrix();
+	glTranslatef(displacement.x, displacement.y, displacement.z);
 	glTranslatef(2, 0, 0);
 	drawProw();
 	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(displacement.x, displacement.y, displacement.z);
 
 	glBegin(GL_TRIANGLE_STRIP);
 	
@@ -42,6 +49,7 @@ void Boat::drawBoat()
 	
 	
 	glEnd();
+	glPopMatrix();
 }
 
 void Boat::drawProw()
