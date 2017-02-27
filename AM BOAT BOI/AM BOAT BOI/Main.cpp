@@ -26,7 +26,7 @@ void drawScene(void)
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	gluLookAt(player.displacement.x, player.displacement.y + 7, player.displacement.z - 15,
-		0,0, player.displacement.z,
+		player.displacement.x,0, player.displacement.z,
 		0.0, 1.0, 0.0);
 	
 	glPushMatrix();
@@ -73,6 +73,7 @@ void drawScene(void)
 		boip.draw();
 		boiq.draw();
 	}
+	std::cout << player.acceleration.z;
 
 	glutSwapBuffers();
 }
@@ -103,7 +104,16 @@ void keyInput(unsigned char key, int x, int y)
 		exit(0);
 		break;
 	case int('w') :
-		forwa += 1;
+		player.acceleration.z += 0.01;
+		break;
+	case int('s') :
+		player.acceleration.z -= 0.01;
+		break;
+	case int('a') :
+		player.rotation -= 1;
+		break;
+	case int('d') :
+		player.rotation += 1;
 		break;
 	default:
 		break;
@@ -121,6 +131,7 @@ void setup(void)
 
 void GamLEP()
 {
+	player.turning();
 	player.motion();
 	glutPostRedisplay();
 }
@@ -138,7 +149,7 @@ int main(int argc, char **argv)
 	glutCreateWindow("Baot");
 	glutDisplayFunc(drawScene);
 	glutReshapeFunc(resize);
-	//glutKeyboardFunc(keyInput);
+	glutKeyboardFunc(keyInput);
 	glutIdleFunc(GamLEP);
 
 	glewExperimental = GL_TRUE;
