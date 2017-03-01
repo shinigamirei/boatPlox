@@ -104,16 +104,16 @@ void keyInput(unsigned char key, int x, int y)
 		exit(0);
 		break;
 	case int('w') :
-		player.acceleration.z += 0.01;
+		player.increase_Acceleration();
 		break;
 	case int('s') :
-		player.acceleration.z -= 0.01;
+		player.decrease_Acceleration();
 		break;
 	case int('a') :
-		player.rotation -= 1;
+		player.rotate_Left();
 		break;
 	case int('d') :
-		player.rotation += 1;
+		player.rotate_Right();
 		break;
 	default:
 		break;

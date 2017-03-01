@@ -16,36 +16,67 @@ Boat::Boat()
 Boat::~Boat()
 {
 }
-
-void Boat::increase_acceleration()
+void Boat::increase_Acceleration()
 {
-	
+	acceleration.x += 0.01;
+	acceleration.z += 0.01;
+}
+void Boat::decrease_Acceleration()
+{
+	acceleration.x -= 0.01;
+	acceleration.z -= 0.01;
 }
 
-void Boat::decrease_acceleration()
+void Boat::rotate_Left()
 {
+	rotation += 2.0;
+	glRotatef(rotation, 0, 1, 0);
+	heading = glm::rotateY(heading, glm::radians(2.0f));
 
 }
-
+void Boat::rotate_Right()
+{
+	rotation -= 2.0;
+	glRotatef(rotation, 0, 1, 0);
+	heading = glm::rotateY(heading, glm::radians(-2.0f));
+}
 void Boat::turning()
 {
 	if (rotation > 360)
 		rotation -= 360;
 	else if (rotation < -360)
 		rotation += 360;
-	glRotatef(rotation, 0, 1, 0);
-	heading = glm::rotateY(heading, glm::radians(rotation));
 }
 
 void Boat::motion()
 { 
-	if (acceleration.z > 0.01)
-		acceleration.z = 0.01;
-	velocity = velocity + acceleration;
-	if (velocity.z > 5)
-		velocity.z = 5;
+	//setting maximum acceleration
+	if (acceleration.z > 0.03)
+	{
+		acceleration.x = 0.03;
+		acceleration.z = 0.03;
+	}
+
+	velocity = velocity + (acceleration*heading);
+	//slows down boat when theres no acceleration
+	if (velocity.x > 0)
+		velocity.x -= ((0.01* velocity.x)+0.1);
+	else if (velocity.x < 0)
+		velocity.x += ((-0.01* velocity.x)-0.1);
+	if (velocity.z > 0)
+		velocity.z -= ((0.01* velocity.z)+0.1);
+	else if (velocity.z < 0)
+		velocity.z += ((-0.01* velocity.z)-0.1);
+	//max and min speeds
+	if (velocity.x > 2)
+		velocity.x = 2;
+	else if (velocity.x < -2)
+		velocity.x = -2;
+	if (velocity.z > 2)
+		velocity.z = 2;
 	else if (velocity.z < -2)
 		velocity.z = -2;
+	
 	displacement = displacement + velocity;
 }
 
@@ -79,6 +110,14 @@ void Boat::drawBoat()
 	glVertex3f(2, 1, -7);	
 	glEnd();
 
+	glPopMatrix();
+
+	glPushMatrix();
+	glBegin(GL_LINES);
+	glColor3f(1, 0, 0);
+	glVertex3d(displacement.x, 5.0f, displacement.z);
+	glVertex3d(displacement.x + heading.x, 5.0f, displacement.z + heading.z);
+	glEnd();
 	glPopMatrix();
 }
 

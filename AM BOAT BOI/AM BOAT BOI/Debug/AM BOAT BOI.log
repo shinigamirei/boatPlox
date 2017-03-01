@@ -1,8 +1,17 @@
 ﻿  Boat.cpp
-c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(41): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(90): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(91): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(92): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(93): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(21): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(22): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(26): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(27): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(55): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(56): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(62): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(64): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(66): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(68): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(130): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(131): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(132): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\boat.cpp(133): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
   AM BOAT BOI.vcxproj -> C:\Users\cookj12\Desktop\GitHub\boatPlox\AM BOAT BOI\Debug\AM BOAT BOI.exe
   AM BOAT BOI.vcxproj -> C:\Users\cookj12\Desktop\GitHub\boatPlox\AM BOAT BOI\Debug\AM BOAT BOI.pdb (Partial PDB)

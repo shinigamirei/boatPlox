@@ -11,8 +11,10 @@ public:
 	
 	Boat();
 	~Boat();
-	void increase_acceleration();
-	void decrease_acceleration();
+	void increase_Acceleration();
+	void decrease_Acceleration();
+	void rotate_Left();
+	void rotate_Right();
 	void turning();
 	void motion();
 	void drawBoat();
