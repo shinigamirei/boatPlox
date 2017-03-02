@@ -10,7 +10,7 @@
 
 using namespace std;
 
-
+#define pi = 3.142
 // Globals.
 static float square_color[3] = { 1.0, 0.0, 0.0 }; // Color of the square.
 Boat player;
@@ -110,9 +110,6 @@ void keyInput(unsigned char key, int x, int y)
 void setup(void)
 {
 	glClearColor(1.0, 1.0, 1.0, 0.0);
-
-	// Make menu.
-	//makeMenu();
 }
 
 void GamLEP()

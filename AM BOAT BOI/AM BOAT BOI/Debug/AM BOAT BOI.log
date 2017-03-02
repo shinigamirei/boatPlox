@@ -1,3 +1,11 @@
 ﻿  Main.cpp
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\main.cpp(57): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\main.cpp(57): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\main.cpp(64): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\main.cpp(64): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\main.cpp(65): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\main.cpp(65): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\main.cpp(175): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\cookj12\desktop\github\boatplox\am boat boi\am boat boi\main.cpp(175): warning C4305: 'initializing': truncation from 'double' to 'float'
   AM BOAT BOI.vcxproj -> C:\Users\cookj12\Desktop\GitHub\boatPlox\AM BOAT BOI\Debug\AM BOAT BOI.exe
   AM BOAT BOI.vcxproj -> C:\Users\cookj12\Desktop\GitHub\boatPlox\AM BOAT BOI\Debug\AM BOAT BOI.pdb (Partial PDB)
