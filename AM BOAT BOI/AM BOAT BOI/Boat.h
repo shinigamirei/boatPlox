@@ -7,7 +7,9 @@ public:
 	glm::vec3 velocity;
 	glm::vec3 displacement;
 	glm::vec3 heading;
-	float rotation;
+	glm::vec3 camera_loc; //camera location
+	glm::vec3 camera_rot; //camera location in relation to boat
+	float rotation;//for drawing
 	
 	Boat();
 	~Boat();
@@ -19,6 +21,6 @@ public:
 	void motion();
 	void drawBoat();
 	void drawProw();
-	
+	void drawBody();	
 };
 

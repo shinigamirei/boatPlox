@@ -22,7 +22,7 @@ void drawScene(void)
 	glLoadIdentity();
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-	gluLookAt(player.displacement.x, player.displacement.y + 7, player.displacement.z - 15,
+	gluLookAt(player.camera_loc.x , 7.0, player.camera_loc.z,
 		player.displacement.x,0, player.displacement.z,
 		0.0, 1.0, 0.0);
 	
@@ -38,27 +38,25 @@ void drawScene(void)
 	glPopMatrix();
 
 	glColor3f(0.0, 1.0, 0.0);
-	//for i=0, i <= VAL i++
-	/*
-	t = 2 *pi *i/VAL
-	vert(X +const(t) * r, Y + sin(t)* r,z
-	*/
-
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	
 	player.drawBoat();
 	buoy start;
+	int buoyno = 120;
 	start.draw_Start();
-
-	for (int j = 0;j < 10; j++)
+	//first straight
+	for (int j = 0;j < 15; j++)
 	{
 		buoy boip;
 		buoy boiq;
-		boip.position(-20, 0, j * 40);
-		boiq.position(20, 0, j * 40);
+		boip.position(-40, 0, j * 40);
+		boiq.position(40, 0, j * 40);
 		boip.draw();
 		boiq.draw();
 	}
+	buoy turn;
+	turn.position(0, 0, 640);
+	turn.draw();
+
 	std::cout << player.acceleration.z;
 
 	glutSwapBuffers();
@@ -71,14 +69,6 @@ void resize(int w, int h)
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluPerspective(90.0, 1, 0.01, 1000.0);
-	/*
-	glMatrixMode(GL_PROJECTION);
-	glViewport(0, 0, w, h);
-	//glLoadIdentity();
-	gluPerspective(100.0,(double)w/(double)h,0.01,1000.0);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();	
-	*/
 }
 
 // Keyboard input processing routine.

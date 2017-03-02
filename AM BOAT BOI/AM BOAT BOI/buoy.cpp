@@ -5,6 +5,7 @@
 
 buoy::buoy()
 {
+	buoyno = 120;
 }
 
 
@@ -22,16 +23,11 @@ void buoy::position(int x, int y, int z)
 void buoy::draw_Start()
 {
 	glBegin(GL_POLYGON);
-	glVertex3f(-20,3,0);
-	glVertex3f(-20, 5, 0);
-	glVertex3f(20, 5, 0);
-	glVertex3f(20, 3, 0);
+	glVertex3f(-40,3,0);
+	glVertex3f(-40, 6, 0);
+	glVertex3f(40, 6, 0);
+	glVertex3f(40, 3, 0);
 	glEnd();
-}
-
-void buoy::draw_course()
-{
-
 }
 
 void buoy::draw()
