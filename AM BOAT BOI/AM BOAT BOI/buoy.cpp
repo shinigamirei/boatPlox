@@ -19,6 +19,21 @@ void buoy::position(int x, int y, int z)
 	pos.z = z;
 }
 
+void buoy::draw_Start()
+{
+	glBegin(GL_POLYGON);
+	glVertex3f(-20,3,0);
+	glVertex3f(-20, 5, 0);
+	glVertex3f(20, 5, 0);
+	glVertex3f(20, 3, 0);
+	glEnd();
+}
+
+void buoy::draw_course()
+{
+
+}
+
 void buoy::draw()
 {
 	glPushMatrix();

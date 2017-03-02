@@ -7,6 +7,8 @@ public:
 	buoy();
 	~buoy();
 	void draw();
+	void draw_Start();
+	void draw_course();
 	void position(int,int,int);
 };
 

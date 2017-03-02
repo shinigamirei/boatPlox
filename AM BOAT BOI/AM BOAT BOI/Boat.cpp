@@ -58,30 +58,33 @@ void Boat::motion()
 	}
 
 	velocity = velocity + (acceleration*heading);
+
 	//slows down boat when theres no acceleration
 	if (velocity.x > 0)
-		velocity.x -= ((0.01* velocity.x)+0.1);
+		velocity.x -= ((0.03* velocity.x));
 	else if (velocity.x < 0)
-		velocity.x += ((-0.01* velocity.x)-0.1);
+		velocity.x += ((-0.03* velocity.x));
 	if (velocity.z > 0)
-		velocity.z -= ((0.01* velocity.z)+0.1);
+		velocity.z -= ((0.03* velocity.z));
 	else if (velocity.z < 0)
-		velocity.z += ((-0.01* velocity.z)-0.1);
+		velocity.z += ((-0.03* velocity.z));
+
 	//max and min speeds
-	if (velocity.x > 2)
-		velocity.x = 2;
-	else if (velocity.x < -2)
-		velocity.x = -2;
-	if (velocity.z > 2)
-		velocity.z = 2;
-	else if (velocity.z < -2)
-		velocity.z = -2;
+	if (velocity.x > 5)
+		velocity.x = 5;
+	else if (velocity.x < -5)
+		velocity.x = -5;
+	if (velocity.z > 5)
+		velocity.z = 5;
+	else if (velocity.z < -5)
+		velocity.z = -5;
 	
 	displacement = displacement + velocity;
 }
 
 void Boat::drawBoat()
 {
+	//draws the first prow
 	glPushMatrix();
 	glTranslatef(displacement.x, displacement.y, displacement.z);
 	glRotatef(rotation, 0, 1, 0);
@@ -90,6 +93,7 @@ void Boat::drawBoat()
 	drawProw();
 	glPopMatrix();
 
+	//draws the second prow
 	glPushMatrix();
 	glTranslatef(displacement.x, displacement.y, displacement.z);
 	glRotatef(rotation, 0, 1, 0);
@@ -98,9 +102,9 @@ void Boat::drawBoat()
 	drawProw();
 	glPopMatrix();
 
+	//draw main body
 	glPushMatrix();
 	glTranslatef(displacement.x, displacement.y, displacement.z);
-
 	glRotatef(rotation, 0, 1, 0);
 
 	glBegin(GL_TRIANGLE_STRIP);
@@ -112,6 +116,7 @@ void Boat::drawBoat()
 
 	glPopMatrix();
 
+	//draws heading line
 	glPushMatrix();
 	glBegin(GL_LINES);
 	glColor3f(1, 0, 0);
