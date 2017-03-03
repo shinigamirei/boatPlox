@@ -10,9 +10,7 @@
 
 using namespace std;
 
-#define pi = 3.142
 // Globals.
-static float square_color[3] = { 1.0, 0.0, 0.0 }; // Color of the square.
 Boat player;
 
 // Drawing routine.
@@ -41,7 +39,6 @@ void drawScene(void)
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	player.drawBoat();
 	buoy start;
-	int buoyno = 120;
 	start.draw_Start();
 	//first straight
 	for (int j = 0;j < 15; j++)
@@ -57,7 +54,7 @@ void drawScene(void)
 	turn.position(0, 0, 640);
 	turn.draw();
 
-	std::cout << player.acceleration.z;
+	std::cout << player.acceleration.z<< std::endl;
 
 	glutSwapBuffers();
 }
@@ -117,7 +114,7 @@ int main(int argc, char **argv)
 	glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE);
 
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
-	glutInitWindowSize(500, 500);
+	glutInitWindowSize(1000, 1000);
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow("Baot");
 	glutDisplayFunc(drawScene);

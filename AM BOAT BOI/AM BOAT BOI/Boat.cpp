@@ -84,11 +84,35 @@ void Boat::motion()
 	
 	displacement = displacement + velocity;
 
-	//camera_loc = camera_rot + displacement;
+	camera_loc = camera_rot + displacement;
 }
 
 void Boat::drawBoat()
 {
+	
+	//draw back/underside
+	glColor3f(1, 0, 0);
+	glPushMatrix();
+	glTranslatef(displacement.x, displacement.y, displacement.z);
+	glRotatef(rotation, 0, 1, 0);
+
+	glBegin(GL_TRIANGLE_STRIP);
+	glVertex3f(-3.5, 1, 0);
+	glVertex3f(-3.5, 0, 0);
+	glVertex3f(-2, 1, -7);
+	glVertex3f(-2, 0, -7);
+	glVertex3f(2, 1, -7);
+	glVertex3f(2, 0, -7);
+	glVertex3f(3.5, 1, 0);
+	glVertex3f(3.5, 0, 0);
+	glVertex3f(3, 1, 3.5);
+	glVertex3f(3, 0, 3.5);
+	glVertex3f(2.8, 1, 4.5);
+	glEnd();
+
+	glPopMatrix();
+
+	glColor3f(0, 1, 0);
 	//draws the first prow
 	glPushMatrix();
 	glTranslatef(displacement.x, displacement.y, displacement.z);
@@ -121,27 +145,7 @@ void Boat::drawBoat()
 
 	glPopMatrix();
 
-	//draw back/underside
-	glColor3f(1, 0, 0);
-	glPushMatrix();
-	glTranslatef(displacement.x, displacement.y, displacement.z);
-	glRotatef(rotation, 0, 1, 0);
-
-	glBegin(GL_TRIANGLE_STRIP);
-	glVertex3f(-3.5, 1, 0);
-	glVertex3f(-3.5, 0, 0);
-	glVertex3f(-2, 1, -7);
-	glVertex3f(-2, 0, -7);
-	glVertex3f(2, 1, -7);
-	glVertex3f(2, 0, -7);
-	glVertex3f(3.5, 1, 0);
-	glVertex3f(3.5, 0, 0);
-	glVertex3f(3, 1, 3.5);
-	glVertex3f(3, 0, 3.5);
-	glVertex3f(2.8, 1, 4.5);
-	glEnd();
-
-	glPopMatrix();
+	
 
 
 	//draws heading line
